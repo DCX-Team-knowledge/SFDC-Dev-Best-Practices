@@ -5,25 +5,16 @@ Welcome to the **Salesforce Developer Consultant Best Practices** guide! This re
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Getting Started](#getting-started)
-3. [Best Practices](#best-practices)
+2. [Best Practices](#best-practices)
    - [Coding Standards](#coding-standards)
-   - [Trigger Frameworks](#trigger-frameworks)
    - [Security](#security)
    - [Deployment](#deployment)
    - [Documentation](#documentation)
-4. [Code Examples](#code-examples)
-   - [Apex Examples](#apex-examples)
-   - [LWC Examples](#lwc-examples)
-5. [Resources](#resources)
-6. [Contributing](#contributing)
-7. [License](#license)
+3. [Resources](#resources)
+4. [Contributing](#contributing)
 
 ## Introduction
 As a Salesforce Developer Consultant, it's crucial to follow established best practices to ensure that the solutions you build are scalable, secure, and easy to maintain. This repository consolidates these best practices and provides practical examples to help you in your day-to-day work.
-
-## Getting Started
-Before diving into the best practices, ensure that you have your development environment set up. We recommend using Visual Studio Code with the Salesforce Extension Pack and the Salesforce CLI. Detailed setup instructions can be found in the [Tooling and Setup](Resources/Tooling_and_Setup.md) section.
 
 ## Best Practices
 ### Coding Standards
@@ -37,10 +28,6 @@ Writing clean, efficient, and maintainable code is key. Adhere to our coding sta
 
 Make sure to follow these standards in every project to maintain high-quality, consistent code.
 
-
-### Trigger Frameworks
-Learn about the best practices for creating triggers in Salesforce, including how to avoid common issues like recursion. See the [Trigger Best Practices](Best_Practices/Trigger_Best_Practices.md) guide for more details.
-
 ### Security
 Security should be a top priority. Follow our [Security Guidelines](Best_Practices/Security.md) to ensure that your code respects Salesforce security best practices.
 
@@ -49,15 +36,6 @@ Implementing a smooth deployment process is critical for delivering reliable upd
 
 ### Documentation
 Good documentation is essential. Make sure to document your code thoroughly and follow the guidelines in our [Documentation Best Practices](Best_Practices/Documentation.md).
-
-## Code Examples
-To see the best practices in action, check out our code examples:
-
-### Apex Examples
-Explore real-world Apex code examples that demonstrate the application of best practices. See the [Apex Examples](Code_Examples/Apex_Examples/) directory.
-
-### LWC Examples
-Find examples of Lightning Web Components that follow our coding standards and best practices. Visit the [LWC Examples](Code_Examples/LWC_Examples/) directory.
 
 ## Resources
 Here you’ll find a curated list of useful tools, external documentation, and training resources:
@@ -69,5 +47,3 @@ Here you’ll find a curated list of useful tools, external documentation, and t
 ## Contributing
 We welcome contributions from the community! Please review our [Contributing Guidelines](CONTRIBUTING.md) before submitting any changes to ensure consistency.
 
-## License
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for more details.
