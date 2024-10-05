@@ -10,10 +10,89 @@
 
 ## 2. Code Formatting and Style
 
-- **Indentation**: Use consistent indentation (usually 2 or 4 spaces). Avoid mixing tabs and spaces.
-- **Line Length**: Keep lines within 80-120 characters to enhance readability.
-- **Braces**: Use braces `{}` for all conditional and loop statements, even if they contain a single line of code.
-- **Whitespace**: Use whitespace around operators and after commas for readability. Avoid excessive blank lines.
+Guide to configure Prettier in order to apply a common style for a project  
+
+
+**Install Prettier**
+ ```
+ npm install
+ npm install --save-dev prettier
+ npm install --save-dev prettier-plugin-apex
+ ```
+
+
+**Add a couple of scripts to our package.json. These will come in handy when we run prettier from the CLI later:**
+```
+"scripts": {
+    "prettier:format": "./node_modules/.bin/prettier --write '**/*'",
+    "prettier:format:apex": "./node_modules/.bin/prettier --write '**/*.{trigger,cls}'",
+    "prettier:format:json": "./node_modules/.bin/prettier --write '**/*.{json,yml,yaml}'",
+    "prettier:format:visualforce": "./node_modules/.bin/prettier --write '**/*.{cmp,page,component}'",
+    "prettier:format:lwc": "./node_modules/.bin/prettier --write '**/lwc/**/*.{html,js}'"
+  },
+```
+
+  **Configure Prettier for Apex and Visualforce in `.prettierrc`**
+
+  ```
+{
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "**/lwc/**/*.html",
+      "options": {
+        "tabWidth": 4,
+        "parser": "lwc"
+      }
+    },
+    {
+      "files": "**/*.{cls,trigger,apex}",
+      "options": {
+        "apexInsertFinalNewline": true,
+        "printWidth": 140,
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.{cmp,page,component}",
+      "options": {
+        "parser": "html",
+        "tabWidth": 4
+      }
+    }
+  ]
+}
+```
+
+ 
+  **Prettier is not compatible with some of the CLI-generated files by default, add them to `.prettierignore`**
+
+  ```
+  .sfdx
+.localdevserver
+.*ignore
+*.*-meta.xml
+*.sh
+*.log
+documentation/**
+```
+
+
+
+**Configure Your VS Code Workspace**
+```
+ {
+   "editor.formatOnSave": true,
+   "editor.formatOnType": true,
+   "salesforcedx-vscode-apex.enable-semantic-errors": false,
+   "editor.insertSpaces": true,
+   "editor.detectIndentation": true,
+   "files.insertFinalNewline": true,
+   "editor.defaultFormatter": "esbenp.prettier-vscode"
+ }
+```
+**Refrence:** https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/prettier.html
+
 
 ## 3. Code Structure and Organization
 
