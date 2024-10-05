@@ -1,12 +1,18 @@
-Use formtter 
-WHY ?
-It is generally accepted that having a common style guide is valuable for a project and team
-https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/prettier.html
-Install Prettier
-npm install
-npm install --save-dev prettier
-npm install --save-dev prettier-plugin-apex
-Add a couple of scripts to our package.json. These will come in handy when we run prettier from our CLI later.
+### Prcatice 1: Unify the code by using a formatter 
+
+Guide to configure Prettier in order to apply a common style for a project  
+
+
+**Install Prettier**
+ ```
+ npm install
+ npm install --save-dev prettier
+ npm install --save-dev prettier-plugin-apex
+ ```
+
+
+**Add a couple of scripts to our package.json. These will come in handy when we run prettier from the CLI later:**
+```
 "scripts": {
     "prettier:format": "./node_modules/.bin/prettier --write '**/*'",
     "prettier:format:apex": "./node_modules/.bin/prettier --write '**/*.{trigger,cls}'",
@@ -14,19 +20,11 @@ Add a couple of scripts to our package.json. These will come in handy when we ru
     "prettier:format:visualforce": "./node_modules/.bin/prettier --write '**/*.{cmp,page,component}'",
     "prettier:format:lwc": "./node_modules/.bin/prettier --write '**/lwc/**/*.{html,js}'"
   },
+```
 
-  Configure Prettier for Apex and Visualforce
-  Prettier is not compatible with some of the CLI-generated files by default.
-  .prettierignore
-  .sfdx
-.localdevserver
-.*ignore
-*.*-meta.xml
-*.sh
-*.log
-documentation/**
+  **Configure Prettier for Apex and Visualforce in `.prettierrc`**
 
-.prettierrc
+  ```
 {
   "trailingComma": "none",
   "overrides": [
@@ -54,13 +52,33 @@ documentation/**
     }
   ]
 }
-Configure Your VS Code Workspace
-{
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "salesforcedx-vscode-apex.enable-semantic-errors": false,
-  "editor.insertSpaces": true,
-  "editor.detectIndentation": true,
-  "files.insertFinalNewline": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
+```
+
+ 
+  **Prettier is not compatible with some of the CLI-generated files by default, add them to `.prettierignore`**
+
+  ```
+  .sfdx
+.localdevserver
+.*ignore
+*.*-meta.xml
+*.sh
+*.log
+documentation/**
+```
+
+
+
+**Configure Your VS Code Workspace**
+```
+ {
+   "editor.formatOnSave": true,
+   "editor.formatOnType": true,
+   "salesforcedx-vscode-apex.enable-semantic-errors": false,
+   "editor.insertSpaces": true,
+   "editor.detectIndentation": true,
+   "files.insertFinalNewline": true,
+   "editor.defaultFormatter": "esbenp.prettier-vscode"
+ }
+```
+**Refrence:** https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/prettier.html
