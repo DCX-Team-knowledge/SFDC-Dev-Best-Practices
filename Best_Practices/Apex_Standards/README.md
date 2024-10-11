@@ -14,10 +14,18 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 [Bulkifying Apex Code](../Apex_Standards/Examples.js) code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
 
 ```javascript
-function helloWorld() {
-    console.log("Hello, World!");
+//Bulkify your Code
+trigger accountTestTrggr on Account (before insert, before update) {
+ 
+   //This only handles the first record in the Trigger.new collection
+   //But if more than one Account initiated this trigger, those additional records
+   //will not be processed
+   Account acct = Trigger.new[0];
+   List<Contact> contacts = [select id, salutation, firstname, lastname, email
+              from Contact where accountId = :acct.Id];
+    
 }
-helloWorld();
+
 ```
 
 
