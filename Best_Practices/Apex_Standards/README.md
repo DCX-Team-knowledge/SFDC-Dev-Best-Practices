@@ -51,7 +51,8 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
      }
       // Perform DML outside the loop
      insert contactsToInsert;
-     } ```
+     }
+     ```
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
