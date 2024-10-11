@@ -37,12 +37,9 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
      for (Account acc : Trigger.new) {
         // Inefficient: DML inside a loop
         insert new Contact(LastName = 'Smith', AccountId = acc.Id);
-    }
-   }
+     }
+     }
      ```
-
-
-
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
