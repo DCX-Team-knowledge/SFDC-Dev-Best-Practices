@@ -15,5 +15,5 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
-[Avoiding SOQL/DML in Apex code](../Apex_Standards/Examples.js#L13) ensures governor limits are not hit.
+[Avoiding SOQL/DML in Apex code](../Apex_Standards/Examples.js#L13) ensures [Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_apexgov.htm) are not hit.
 Never place SOQL queries or DML statements inside `for` loops. Doing so can result in multiple queries or operations being executed, leading to performance issues and exceeding Salesforce’s execution limits. Instead, bulkify your operations by moving queries or DML statements outside the loop and processing data in collections.
