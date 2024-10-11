@@ -18,7 +18,7 @@ function helloWorld() {
     console.log("Hello, World!");
 }
 helloWorld();
-
+```
 
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
