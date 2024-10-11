@@ -32,6 +32,7 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
 
 1. **Use Collections**:
    - Utilize lists, sets, or maps to collect records and process them in bulk rather than one at a time.
+     In the example below, the code executes DML operations inside a loop, risking governor limits and inefficiency.
      ```javascript
      trigger AccountTrigger on Account (after insert) {
      for (Account acc : Trigger.new) {
@@ -40,6 +41,7 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
      }
      }
      ```
+     This can be avoided by colleting the records in a list and performing a single DML operation outside the loop, optimizing performance and adhering to best practices.
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
