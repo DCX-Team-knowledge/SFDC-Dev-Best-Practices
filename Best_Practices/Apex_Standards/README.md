@@ -33,19 +33,16 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
 1. **Use Collections**:
    - Utilize lists, sets, or maps to collect records and process them in bulk rather than one at a time.
      ```javascript
-//Bulkify your Code
-trigger accountTestTrggr on Account (before insert, before update) {
- 
-   //This only handles the first record in the Trigger.new collection
-   //But if more than one Account initiated this trigger, those additional records
-   //will not be processed
-   Account acct = Trigger.new[0];
-   List<Contact> contacts = [select id, salutation, firstname, lastname, email
-              from Contact where accountId = :acct.Id];
-    
-}
+     trigger AccountTrigger on Account (after insert) {
+     for (Account acc : Trigger.new) {
+        // Inefficient: DML inside a loop
+        insert new Contact(LastName = 'Smith', AccountId = acc.Id);
+    }
+   }
+     ```
 
-```
+
+
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
