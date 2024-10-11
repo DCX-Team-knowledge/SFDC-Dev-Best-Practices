@@ -5,6 +5,6 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 
 # Bulkifying Apex Code
 
-Bulkifying Apex code ensures that it can handle large volumes of data efficiently, without hitting Salesforce governor limits. Salesforce imposes strict limits on the number of queries and database operations per transaction, and bulkifying allows your code to process multiple records in a single transaction. This practice not only optimizes performance but also prevents runtime exceptions that could cause your code to fail.
+Bulkifying Apex code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
 
-For an example of bulkifying Apex code, check out the [Examples.js](./Examples.js#L1) file.
+For an example, see the [Examples.js](./Best_Practices/Apex_Standards/Examples.js#L1) file.
