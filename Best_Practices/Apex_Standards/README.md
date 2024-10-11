@@ -5,4 +5,4 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 
 # Bulkifying Apex Code
 
-[Bulkifying Apex Code](../Apex_Standards/Exsamples.js) code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
+[Bulkifying Apex Code](../Apex_Standards/Examples.js) code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
