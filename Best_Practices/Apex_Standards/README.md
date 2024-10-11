@@ -28,6 +28,10 @@ trigger accountTestTrggr on Account (before insert, before update) {
 
 ```
 
+To ensure your Apex code is bulkified and can efficiently handle large volumes of data, follow these best practices:
+
+1. **Use Collections**:
+   - Utilize lists, sets, or maps to collect records and process them in bulk rather than one at a time.
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
