@@ -42,6 +42,18 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
      }
      ```
      This can be avoided by colleting the records in a list and performing a single DML operation outside the loop, optimizing performance and adhering to best practices.
+     ```javascript
+     trigger AccountTrigger on Account (after insert) {
+    List<Contact> contactsToInsert = new List<Contact>();
+
+    for (Account acc : Trigger.new) {
+        // Collect records in bulk
+        contactsToInsert.add(new Contact(LastName = 'Smith', AccountId = acc.Id));
+    }
+
+    // Perform DML outside the loop
+    insert contactsToInsert;
+} ```
 
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
