@@ -13,6 +13,14 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 
 [Bulkifying Apex Code](../Apex_Standards/Examples.js) code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
 
+```javascript
+function helloWorld() {
+    console.log("Hello, World!");
+}
+helloWorld();
+
+
+
 ### Avoid SOQL Queries or DML Statements Inside FOR Loops
 
 [Avoiding SOQL/DML in Apex code](../Apex_Standards/Examples.js#L13) ensures [Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_apexgov.htm) are not hit.
