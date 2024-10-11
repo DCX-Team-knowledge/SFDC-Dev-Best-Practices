@@ -10,4 +10,4 @@ trigger accountTestTrggr on Account (before insert, before update) {
     
 }
 
-[Bulkifying Apex Code](../Apex_Standards/README.md)
+
