@@ -9,3 +9,5 @@ trigger accountTestTrggr on Account (before insert, before update) {
               from Contact where accountId = :acct.Id];
     
 }
+
+[Bulkifying Apex Code](../Apex_Standards/README.md)
