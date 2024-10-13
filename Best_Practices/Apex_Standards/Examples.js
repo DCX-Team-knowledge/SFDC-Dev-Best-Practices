@@ -38,10 +38,8 @@ trigger accountTestTrggr on Account (before insert, before update) {
       }      
    }
 }
-// Examples.js
 
 // Try-Catch Block Example
-// #try-catch-block
 public with sharing class ExampleClass {
   public static void updateAccount(String accountId) {
     try {
@@ -54,7 +52,6 @@ public with sharing class ExampleClass {
 }
 
 // Specific Exception Handling Example
-// #specific-exception-handling
 public with sharing class ExampleClass {
   public static void updateAccount(String accountId) {
     try {
@@ -69,7 +66,6 @@ public with sharing class ExampleClass {
 }
 
 // Custom Exception Example
-// #custom-exception
 public with sharing class ExampleClass {
   public class MyCustomException extends Exception {}
 
@@ -84,7 +80,6 @@ public with sharing class ExampleClass {
 }
 
 // AuraHandledException Example
-// #aura-handled-exception
 public with sharing class ExampleClass {
   @AuraEnabled
   public static void updateAccount(String accountId) {
@@ -98,7 +93,6 @@ public with sharing class ExampleClass {
 }
 
 // Custom Exception Class Example
-// #custom-exception-class
 public with sharing class ExampleClass {
   public class MyCustomException extends Exception {}
 
@@ -114,7 +108,6 @@ public with sharing class ExampleClass {
 }
 
 // Null Handling Example
-// #null-handling
 public with sharing class ExampleClass {
   @AuraEnabled
   public static String handleNullValue(String input) {
@@ -123,7 +116,6 @@ public with sharing class ExampleClass {
 }
 
 // Custom Error Object Example
-// #custom-error-object
 public class ErrorWrapper {
   public String severity;
   public String message;
