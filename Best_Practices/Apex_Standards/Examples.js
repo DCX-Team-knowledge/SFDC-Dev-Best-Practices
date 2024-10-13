@@ -39,7 +39,7 @@ trigger accountTestTrggr on Account (before insert, before update) {
    }
 }
 
-AuraHandledException
+//AuraHandledException
 public with sharing class AccountHandler {
   @AuraEnabled
   public static void updateAccount(String accountId, String newName) {
