@@ -78,6 +78,10 @@ As Apex developers, it's essential to handle errors consistently across projects
 
 - **Throw Custom Exceptions:** Create and throw custom exceptions for unique cases to improve readability and provide clearer error messages.  
   Example: [Custom Exception Example](../Apex_Standards/Examples.js#L68)
+- **Use multiple try-catch blocks** for different operations if they require distinct error handling, ensuring that you can handle different errors more 
+   effectively.
+- **Propagate unhandled exceptions** if they do not require handling at the current level, allowing higher-level systems to manage the error.
+- **Always log detailed exceptions** for further debugging and analysis to ensure issues can be traced and resolved quickly.
 
 ## Common Apex Exception Handling Patterns
 
@@ -87,13 +91,6 @@ As Apex developers, it's essential to handle errors consistently across projects
 | **Custom Exception Class**   | Define and throw custom exception classes for advanced error control.                               | [Custom Exception Class Example](../Apex_Standards/Examples.js#custom-exception-class)                 |
 | **Null Handling**            | Use the safe navigation operator to handle null values without raising exceptions.                  | [Null Handling Example](../Apex_Standards/Examples.js#null-handling)                                   |
 | **Custom Error Object**      | Return a structured error object using a wrapper class for detailed error messaging.                | [Custom Error Object Example](../Apex_Standards/Examples.js#custom-error-object)                       |
-
-
-## Best Practices
-
-- Use multiple try-catch blocks for different operations if they require distinct error handling, ensuring that you can handle different errors more effectively.
-- Propagate unhandled exceptions if they do not require handling at the current level, allowing higher-level systems to manage the error.
-- Always log detailed exceptions for further debugging and analysis to ensure issues can be traced and resolved quickly.
 
 ## References
 
