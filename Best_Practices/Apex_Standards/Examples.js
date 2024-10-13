@@ -125,15 +125,3 @@ public class ErrorWrapper {
     this.message = message;
   }
 }
-
-public with sharing class ExampleClass {
-  @AuraEnabled
-  public static ErrorWrapper handleCustomError(String input) {
-    try {
-      return new ErrorWrapper('LOW', input.toUpperCase());
-    } catch(Exception e) {
-      return new ErrorWrapper('HIGH', 'Error occurred: ' + e.getMessage());
-    }
-  }
-}
-
