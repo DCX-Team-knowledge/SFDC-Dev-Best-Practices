@@ -8,104 +8,12 @@
 - **Constants**: Use UPPER_SNAKE_CASE (e.g., `MAX_RETRIES`, `PI_VALUE`).
 - **File Names**: Use descriptive file names that reflect the content (e.g., `userController.js`, `orderService.py`).
 
-## 2. Code Formatting and Style
-
-Guide to configure Prettier in order to apply a common style for a project  
-
-
-**Install Prettier**
- ```
- npm install
- npm install --save-dev prettier
- npm install --save-dev prettier-plugin-apex
- ```
-
-
-**Add a couple of scripts to our package.json. These will come in handy when we run prettier from the CLI later:**
-```
-"scripts": {
-    "prettier:format": "./node_modules/.bin/prettier --write '**/*'",
-    "prettier:format:apex": "./node_modules/.bin/prettier --write '**/*.{trigger,cls}'",
-    "prettier:format:json": "./node_modules/.bin/prettier --write '**/*.{json,yml,yaml}'",
-    "prettier:format:visualforce": "./node_modules/.bin/prettier --write '**/*.{cmp,page,component}'",
-    "prettier:format:lwc": "./node_modules/.bin/prettier --write '**/lwc/**/*.{html,js}'"
-  },
-```
-
-  **Configure Prettier for Apex and Visualforce in `.prettierrc`**
-
-  ```
-{
-  "trailingComma": "none",
-  "overrides": [
-    {
-      "files": "**/lwc/**/*.html",
-      "options": {
-        "tabWidth": 4,
-        "parser": "lwc"
-      }
-    },
-    {
-      "files": "**/*.{cls,trigger,apex}",
-      "options": {
-        "apexInsertFinalNewline": true,
-        "printWidth": 140,
-        "tabWidth": 4
-      }
-    },
-    {
-      "files": "*.{cmp,page,component}",
-      "options": {
-        "parser": "html",
-        "tabWidth": 4
-      }
-    }
-  ]
-}
-```
-
- 
-  **Prettier is not compatible with some of the CLI-generated files by default, add them to `.prettierignore`**
-
-  ```
-  .sfdx
-.localdevserver
-.*ignore
-*.*-meta.xml
-*.sh
-*.log
-documentation/**
-```
-
-
-
-**Configure Your VS Code Workspace**
-```
- {
-   "editor.formatOnSave": true,
-   "editor.formatOnType": true,
-   "salesforcedx-vscode-apex.enable-semantic-errors": false,
-   "editor.insertSpaces": true,
-   "editor.detectIndentation": true,
-   "files.insertFinalNewline": true,
-   "editor.defaultFormatter": "esbenp.prettier-vscode"
- }
-```
-**Refrence:** https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/prettier.html
-
-
 ## 3. Code Structure and Organization
 
 - **Modular Code**: Break down large functions or classes into smaller, reusable modules.
 - **Single Responsibility**: Each function, method, or class should have a single responsibility.
 - **DRY Principle (Don't Repeat Yourself)**: Avoid duplicate code by refactoring common logic into functions or methods.
 - **Consistent Ordering**: Keep a consistent order of methods and functions (e.g., public first, then protected, then private).
-
-## 4. Error Handling and Logging
-
-- **Error Handling**: Use try-catch blocks appropriately. Provide meaningful error messages.
-- **Logging**: Use logging instead of `print` statements or console logs for tracking errors and system behavior.
-- **Avoid Silent Failures**: Always handle errors; never ignore exceptions.
 
 ## 5. Comments and Documentation
 
@@ -153,6 +61,83 @@ documentation/**
 
 - **Linters**: Use linters (like ESLint for JavaScript, Pylint for Python) to enforce coding standards automatically.
 - **Code Formatters**: Use formatters (like Prettier or Black) to keep code consistently formatted.
+### ***Guide to configure Prettier in order to apply a common style for a project***  
+
+**Install Prettier**
+ ```
+ npm install
+ npm install --save-dev prettier
+ npm install --save-dev prettier-plugin-apex
+ ```
+
+**Add a couple of scripts to our package.json. These will come in handy when we run prettier from the CLI later:**
+```
+"scripts": {
+    "prettier:format": "./node_modules/.bin/prettier --write '**/*'",
+    "prettier:format:apex": "./node_modules/.bin/prettier --write '**/*.{trigger,cls}'",
+    "prettier:format:json": "./node_modules/.bin/prettier --write '**/*.{json,yml,yaml}'",
+    "prettier:format:visualforce": "./node_modules/.bin/prettier --write '**/*.{cmp,page,component}'",
+    "prettier:format:lwc": "./node_modules/.bin/prettier --write '**/lwc/**/*.{html,js}'"
+  },
+```
+
+  **Configure Prettier for Apex and Visualforce in `.prettierrc`**
+
+  ```
+{
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "**/lwc/**/*.html",
+      "options": {
+        "tabWidth": 4,
+        "parser": "lwc"
+      }
+    },
+    {
+      "files": "**/*.{cls,trigger,apex}",
+      "options": {
+        "apexInsertFinalNewline": true,
+        "printWidth": 140,
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.{cmp,page,component}",
+      "options": {
+        "parser": "html",
+        "tabWidth": 4
+      }
+    }
+  ]
+}
+```
+
+  **Prettier is not compatible with some of the CLI-generated files by default, add them to `.prettierignore`**
+
+  ```
+  .sfdx
+.localdevserver
+.*ignore
+*.*-meta.xml
+*.sh
+*.log
+documentation/**
+```
+
+**Configure Your VS Code Workspace**
+```
+ {
+   "editor.formatOnSave": true,
+   "editor.formatOnType": true,
+   "salesforcedx-vscode-apex.enable-semantic-errors": false,
+   "editor.insertSpaces": true,
+   "editor.detectIndentation": true,
+   "files.insertFinalNewline": true,
+   "editor.defaultFormatter": "esbenp.prettier-vscode"
+ }
+```
+**Refrence:** https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/prettier.html
 - **Static Analysis**: Use static code analysis tools to identify potential errors and enforce best practices.
 
 Following these coding standards will help ensure your code is clean, maintainable, and secure.
