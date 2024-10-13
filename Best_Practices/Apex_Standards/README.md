@@ -71,33 +71,33 @@ As Apex developers, it's essential to handle errors consistently across projects
 ## General Guidelines
 
 - **Use Try-Catch Blocks:** Wrap code that might throw exceptions in try-catch blocks to handle errors smoothly and avoid unhandled exceptions from breaking your app.  
-  Example: [Try-Catch Example](../Apex_Standards/Examples.js#try-catch-block)
+  Example: [Try-Catch Example](../Apex_Standards/Examples.js#L42)
 
 - **Handle Specific Exceptions:** Catch specific exceptions like `DmlException` or `QueryException` instead of a generic `Exception` to make debugging easier.  
-  Example: [Specific Exception Handling Example](../Apex_Standards/Examples.js#specific-exception-handling)
+  Example: [Specific Exception Handling Example](../Apex_Standards/Examples.js#L54)
 
 - **Throw Custom Exceptions:** Create and throw custom exceptions for unique cases to improve readability and provide clearer error messages.  
-  Example: [Custom Exception Example](../Apex_Standards/Examples.js#custom-exception)
+  Example: [Custom Exception Example](../Apex_Standards/Examples.js#L68)
 
 ## Custom Exception Handling
 
 Use `AuraHandledException` to send user-friendly error messages in Lightning components (Aura or LWC).  
-Example: [AuraHandledException Example](../Apex_Standards/Examples.js#aura-handled-exception)
+Example: [AuraHandledException Example](../Apex_Standards/Examples.js#L82)
 
 ## Custom Exception Class
 
 Define your own exception class for more flexibility and control over the error types and messaging across different layers of your application.  
-Example: [Custom Exception Class Example](../Apex_Standards/Examples.js#custom-exception-class)
+Example: [Custom Exception Class Example](../Apex_Standards/Examples.js#L95)
 
 ## Handling Null Values
 
 Use the [Safe Navigation Operator](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_SafeNavigationOperator.htm) to avoid throwing exceptions for null values. This simplifies the logic and helps handle null inputs more gracefully without raising exceptions.  
-Example: [Null Handling Example](../Apex_Standards/Examples.js#null-handling)
+Example: [Null Handling Example](../Apex_Standards/Examples.js#L110)
 
 ## Returning a Custom Error Object
 
 Instead of returning a simple string, use a wrapper class to return structured error messages, especially when multiple details need to be conveyed to the client.  
-Example: [Custom Error Object Example](../Apex_Standards/Examples.js#custom-error-object)
+Example: [Custom Error Object Example](../Apex_Standards/Examples.js#L118)
 
 ## Best Practices
 
