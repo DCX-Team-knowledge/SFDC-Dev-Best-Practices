@@ -37,4 +37,19 @@ trigger accountTestTrggr on Account (before insert, before update) {
          update c;
       }      
    }
-} 
+}
+
+AuraHandledException
+public with sharing class AccountHandler {
+  @AuraEnabled
+  public static void updateAccount(String accountId, String newName) {
+    try {
+      Account acc = [SELECT Id, Name FROM Account WHERE Id = :accountId LIMIT 1];
+      acc.Name = newName;
+      update acc;
+    } catch(DmlException e) {
+      throw new AuraHandledException('Failed to update the account. Please try again.');
+    }
+  }
+}
+
