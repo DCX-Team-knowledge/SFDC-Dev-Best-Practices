@@ -7,6 +7,8 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 ## Table of Contents
 - [Bulkifying Apex Code](#bulkifying-apex-code)
 - [Avoid SOQL Queries or DML Statements Inside FOR Loops](#avoid-soql-queries-or-dml-statements-inside-for-loops)
+- [Apex Error Handling](#apex-error-handling)
+  
 
 
 ### Bulkifying Apex Code
@@ -58,3 +60,51 @@ To ensure your Apex code is bulkified and can efficiently handle large volumes o
 
 [Avoiding SOQL/DML in Apex code](../Apex_Standards/Examples.js#L13) ensures [Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_apexgov.htm) are not hit.
 Never place SOQL queries or DML statements inside `for` loops. Doing so can result in multiple queries or operations being executed, leading to performance issues and exceeding Salesforce’s execution limits. Instead, bulkify your operations by moving queries or DML statements outside the loop and processing data in collections.
+
+
+### Apex Error Handling
+
+As Apex developers, it's essential to handle errors consistently across projects. This guide covers best practices for managing exceptions in Salesforce applications, with examples to help you implement effective error handling strategies.
+
+## General Guidelines
+
+- **Use Try-Catch Blocks:** Wrap code that might throw exceptions in try-catch blocks to handle errors smoothly and avoid unhandled exceptions from breaking your app.  
+  Example: [Try-Catch Example](Examples.js#try-catch-block)
+
+- **Handle Specific Exceptions:** Catch specific exceptions like `DmlException` or `QueryException` instead of a generic `Exception` to make debugging easier.  
+  Example: [Specific Exception Handling Example](Examples.js#specific-exception-handling)
+
+- **Throw Custom Exceptions:** Create and throw custom exceptions for unique cases to improve readability and provide clearer error messages.  
+  Example: [Custom Exception Example](Examples.js#custom-exception)
+
+## Custom Exception Handling
+
+Use `AuraHandledException` to send user-friendly error messages in Lightning components (Aura or LWC).  
+Example: [AuraHandledException Example](Examples.js#aura-handled-exception)
+
+## Custom Exception Class
+
+Define your own exception class for more flexibility and control over the error types and messaging across different layers of your application.  
+Example: [Custom Exception Class Example](Examples.js#custom-exception-class)
+
+## Handling Null Values
+
+Use the [Safe Navigation Operator](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_SafeNavigationOperator.htm) to avoid throwing exceptions for null values. This simplifies the logic and helps handle null inputs more gracefully without raising exceptions.  
+Example: [Null Handling Example](Examples.js#null-handling)
+
+## Returning a Custom Error Object
+
+Instead of returning a simple string, use a wrapper class to return structured error messages, especially when multiple details need to be conveyed to the client.  
+Example: [Custom Error Object Example](Examples.js#custom-error-object)
+
+## Best Practices
+
+- Use multiple try-catch blocks for different operations if they require distinct error handling, ensuring that you can handle different errors more effectively.
+- Propagate unhandled exceptions if they do not require handling at the current level, allowing higher-level systems to manage the error.
+- Always log detailed exceptions for further debugging and analysis to ensure issues can be traced and resolved quickly.
+
+## References
+
+- [Apex Error Handling in LWC](https://developer.salesforce.com/docs/platform/lwc/guide/apex-error-handling.html)
+- [Error Handling Best Practices in Lightning and Apex](https://developer.salesforce.com/blogs/2017/09/error-handling-best-practices-lightning-apex)
+
