@@ -80,7 +80,7 @@ As Apex developers, it's essential to handle errors consistently across projects
 ## Custom Exception Handling
 
 Use `AuraHandledException` to send user-friendly error messages in Lightning components (Aura or LWC).  
-Example: [AuraHandledException Example](../Apex_Standards/Examples.js#aura-handled-exception)
+Example: [AuraHandledException Example](../Apex_Standards/Examples.js#L42)
 
 ## Custom Exception Class
 
