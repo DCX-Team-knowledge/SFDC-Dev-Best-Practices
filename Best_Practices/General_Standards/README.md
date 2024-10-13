@@ -85,32 +85,32 @@
 
   ```
 {
-  "trailingComma": "none",
-  "overrides": [
-    {
-      "files": "**/lwc/**/*.html",
-      "options": {
-        "tabWidth": 4,
-        "parser": "lwc"
-      }
-    },
-    {
-      "files": "**/*.{cls,trigger,apex}",
-      "options": {
-        "apexInsertFinalNewline": true,
-        "printWidth": 140,
-        "tabWidth": 4
-      }
-    },
-    {
-      "files": "*.{cmp,page,component}",
-      "options": {
-        "parser": "html",
-        "tabWidth": 4
-      }
-    }
-  ]
-}
+    trailingComma: 'none',
+    overrides: [
+        {
+            files: '**/lwc/**/*.html',
+            options: {
+                tabWidth: 4,
+                parser: 'lwc',
+            },
+        },
+        {
+            files: '**/*.{cls,trigger,apex}',
+            options: {
+                apexInsertFinalNewline: true,
+                printWidth: 140,
+                tabWidth: 4,
+            },
+        },
+        {
+            files: '*.{cmp,page,component}',
+            options: {
+                parser: 'html',
+                tabWidth: 4,
+            },
+        },
+    ],
+};
 ```
 
   **Prettier is not compatible with some of the CLI-generated files by default, add them to `.prettierignore`**
