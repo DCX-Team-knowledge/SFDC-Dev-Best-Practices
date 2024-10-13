@@ -38,17 +38,109 @@ trigger accountTestTrggr on Account (before insert, before update) {
       }      
    }
 }
+// Examples.js
 
-#AuraHandledException
-public with sharing class AccountHandler {
-  @AuraEnabled
-  public static void updateAccount(String accountId, String newName) {
+// Try-Catch Block Example
+// #try-catch-block
+public with sharing class ExampleClass {
+  public static void updateAccount(String accountId) {
     try {
-      Account acc = [SELECT Id, Name FROM Account WHERE Id = :accountId LIMIT 1];
-      acc.Name = newName;
+      Account acc = [SELECT Id FROM Account WHERE Id = :accountId LIMIT 1];
+      update acc;
+    } catch(Exception e) {
+      System.debug('Error: ' + e.getMessage());
+    }
+  }
+}
+
+// Specific Exception Handling Example
+// #specific-exception-handling
+public with sharing class ExampleClass {
+  public static void updateAccount(String accountId) {
+    try {
+      Account acc = [SELECT Id FROM Account WHERE Id = :accountId LIMIT 1];
       update acc;
     } catch(DmlException e) {
-      throw new AuraHandledException('Failed to update the account. Please try again.');
+      System.debug('DML Error: ' + e.getMessage());
+    } catch(QueryException e) {
+      System.debug('Query Error: ' + e.getMessage());
+    }
+  }
+}
+
+// Custom Exception Example
+// #custom-exception
+public with sharing class ExampleClass {
+  public class MyCustomException extends Exception {}
+
+  public static void updateAccount(String accountId) {
+    try {
+      Account acc = [SELECT Id FROM Account WHERE Id = :accountId LIMIT 1];
+      update acc;
+    } catch(Exception e) {
+      throw new MyCustomException('Custom Error: ' + e.getMessage());
+    }
+  }
+}
+
+// AuraHandledException Example
+// #aura-handled-exception
+public with sharing class ExampleClass {
+  @AuraEnabled
+  public static void updateAccount(String accountId) {
+    try {
+      Account acc = [SELECT Id FROM Account WHERE Id = :accountId LIMIT 1];
+      update acc;
+    } catch(Exception e) {
+      throw new AuraHandledException('Failed to update the account.');
+    }
+  }
+}
+
+// Custom Exception Class Example
+// #custom-exception-class
+public with sharing class ExampleClass {
+  public class MyCustomException extends Exception {}
+
+  @AuraEnabled
+  public static void updateAccount(String accountId) {
+    try {
+      Account acc = [SELECT Id FROM Account WHERE Id = :accountId LIMIT 1];
+      update acc;
+    } catch(Exception e) {
+      throw new MyCustomException('Custom Error: ' + e.getMessage());
+    }
+  }
+}
+
+// Null Handling Example
+// #null-handling
+public with sharing class ExampleClass {
+  @AuraEnabled
+  public static String handleNullValue(String input) {
+    return input?.toUpperCase();
+  }
+}
+
+// Custom Error Object Example
+// #custom-error-object
+public class ErrorWrapper {
+  public String severity;
+  public String message;
+
+  public ErrorWrapper(String severity, String message) {
+    this.severity = severity;
+    this.message = message;
+  }
+}
+
+public with sharing class ExampleClass {
+  @AuraEnabled
+  public static ErrorWrapper handleCustomError(String input) {
+    try {
+      return new ErrorWrapper('LOW', input.toUpperCase());
+    } catch(Exception e) {
+      return new ErrorWrapper('HIGH', 'Error occurred: ' + e.getMessage());
     }
   }
 }
