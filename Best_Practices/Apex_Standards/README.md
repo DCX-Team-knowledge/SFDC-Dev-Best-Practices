@@ -87,10 +87,10 @@ As Apex developers, it's essential to handle errors consistently across projects
 
 | **Exception Type**          | **Description**                                                                                      | **Example**                                                                                           |
 |-----------------------------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| **AuraHandledException**     | Send user-friendly error messages in Aura/LWC using `AuraHandledException`.                         | [AuraHandledException Example](../Apex_Standards/Examples.js#aura-handled-exception)                   |
-| **Custom Exception Class**   | Define and throw custom exception classes for advanced error control.                               | [Custom Exception Class Example](../Apex_Standards/Examples.js#custom-exception-class)                 |
-| **Null Handling**            | Use the safe navigation operator to handle null values without raising exceptions.                  | [Null Handling Example](../Apex_Standards/Examples.js#null-handling)                                   |
-| **Custom Error Object**      | Return a structured error object using a wrapper class for detailed error messaging.                | [Custom Error Object Example](../Apex_Standards/Examples.js#custom-error-object)                       |
+| **AuraHandledException**     | Send user-friendly error messages in Aura/LWC using `AuraHandledException`.                         | [AuraHandledException Example](../Apex_Standards/Examples.js#L82)                   |
+| **Custom Exception Class**   | Define and throw custom exception classes for advanced error control.                               | [Custom Exception Class Example](../Apex_Standards/Examples.js#L95)                 |
+| **Null Handling**            | Use the safe navigation operator to handle null values without raising exceptions.                  | [Null Handling Example](../Apex_Standards/Examples.js#L110)                                   |
+| **Custom Error Object**      | Return a structured error object using a wrapper class for detailed error messaging.                | [Custom Error Object Example](../Apex_Standards/Examples.js#L118)                       |
 
 ## References
 
