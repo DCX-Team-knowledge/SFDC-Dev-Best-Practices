@@ -105,8 +105,6 @@ Example: [Custom Error Object Example](../Apex_Standards/Examples.js#L118)
 - Propagate unhandled exceptions if they do not require handling at the current level, allowing higher-level systems to manage the error.
 - Always log detailed exceptions for further debugging and analysis to ensure issues can be traced and resolved quickly.
 
-For examples, refer to the [Examples.js](../Apex_Standards/Examples.js) file.
-
 ## References
 
 - [Apex Error Handling in LWC](https://developer.salesforce.com/docs/platform/lwc/guide/apex-error-handling.html)
