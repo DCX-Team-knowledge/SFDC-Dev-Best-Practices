@@ -1,6 +1,6 @@
 # Error Handling in Lightning Web Components (LWC)
 
-Error handling is a crucial part of any application and should be incorporated from the design phase. In Lightning Web Components, error handling involves both server-side and client-side strategies to manage expected and unexpected errors gracefully. [Check the full example](../Exsamples.js).
+Error handling is a crucial part of any application and should be incorporated from the design phase. In Lightning Web Components, error handling involves both server-side and client-side strategies to manage expected and unexpected errors gracefully. [Check the full example](./Exsamples.js).
 
 ### Server-Side Error Handling: 
 - Use Apex methods with `try-catch` blocks to handle server-side exceptions and send user-friendly error messages to the client.
