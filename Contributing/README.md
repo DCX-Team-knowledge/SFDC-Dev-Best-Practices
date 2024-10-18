@@ -2,6 +2,22 @@
 
 Thank you for considering contributing to our repository! We value the community's insights and ideas and encourage you to submit any new features, coding standards, or improvements. This page will guide you through the process.
 
+## Best Practices
+
+- Follow our [Coding Standards](link-to-coding-standards).
+- Include tests for any new feature (if applicable).
+- Document your code thoroughly to make it easier for others to understand.
+
+## Using ChatGPT for Assistance
+
+If you're unsure about the structure of your documentation or need help generating markdown files, you can use ChatGPT as follows:
+
+1. **Generate Markdown Files**: Ask ChatGPT to create a basic structure for your markdown file.
+   - Example prompt: "Create a markdown template for a new coding standard in JavaScript."
+
+2. **Edit Markdown Content**: Provide ChatGPT with raw content, and it can help structure, format, or proofread your markdown file.
+   - Example prompt: "Help me improve the wording in this section of a markdown file."
+
 ## Getting Started
 
 To start contributing, follow these steps:
@@ -49,20 +65,5 @@ Once you submit a pull request, a reviewer from our team will check for:
 We aim to review pull requests within 3-5 business days. You may be asked to make changes based on feedback. Once approved, your contribution will be merged into the main branch.
 
 
-## Best Practices
-
-- Follow our [Coding Standards](link-to-coding-standards).
-- Include tests for any new feature (if applicable).
-- Document your code thoroughly to make it easier for others to understand.
-
-## Using ChatGPT for Assistance
-
-If you're unsure about the structure of your documentation or need help generating markdown files, you can use ChatGPT as follows:
-
-1. **Generate Markdown Files**: Ask ChatGPT to create a basic structure for your markdown file.
-   - Example prompt: "Create a markdown template for a new coding standard in JavaScript."
-
-2. **Edit Markdown Content**: Provide ChatGPT with raw content, and it can help structure, format, or proofread your markdown file.
-   - Example prompt: "Help me improve the wording in this section of a markdown file."
 
 
