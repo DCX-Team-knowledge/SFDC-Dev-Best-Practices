@@ -4,7 +4,7 @@ Below are the best practices for documenting coding standards. Click on each sec
 
 <details>
   <summary>1. Structure and Organization</summary>
-
+---
   
   - **Use Clear Categories**: Break down the coding standards into logical categories like "General Coding Standards," "Apex Coding Standards," and "LWC Coding Standards" to improve navigation.
   - **Subsections for Specific Topics**: Within each category, create subsections for topics like Naming Conventions, Commenting, Error Handling, etc.
