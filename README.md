@@ -10,8 +10,8 @@ Welcome to the **Salesforce Developer Consultant Best Practices** guide! This re
    - [Security](#security)
    - [Deployment](#deployment)
    - [Documentation](#documentation)
-3. [Resources](#resources)
-4. [Contributing](#contributing)
+3. [Contributing](#contributing)
+4. [Resources](#resources)
 
 ## Introduction
 As a Salesforce Developer Consultant, it's crucial to follow established best practices to ensure that the solutions you build are scalable, secure, and easy to maintain. This repository consolidates these best practices and provides practical examples to help you in your day-to-day work.
@@ -37,6 +37,9 @@ Implementing a smooth deployment process is critical for delivering reliable upd
 ### Documentation
 Good documentation is essential. Make sure to document your code thoroughly and follow the guidelines in our [Documentation Best Practices](Best_Practices/Documentation/README.md).
 
+## Contributing
+We welcome contributions from the community! Please review our [Contributing Guidelines](Contributing/README.md) before submitting any changes to ensure consistency.
+
 ## Resources
 Here you’ll find a curated list of useful tools, external documentation, and training resources:
 
@@ -44,6 +47,5 @@ Here you’ll find a curated list of useful tools, external documentation, and t
 - [Trailhead Modules](https://trailhead.salesforce.com/)
 - [Recommended VS Code Extensions](Resources/VSCode_Extensions.md)
 
-## Contributing
-We welcome contributions from the community! Please review our [Contributing Guidelines](Contributing/README.md) before submitting any changes to ensure consistency.
+
 
