@@ -1,7 +1,6 @@
 # Best Practices for Documentation
 
 Below are the best practices for documenting coding standards. Click on each section to expand the details.
----
 
 <details>
    <summary> 1. Structure and Organization </summary>
@@ -14,7 +13,6 @@ Below are the best practices for documenting coding standards. Click on each sec
   - **Table of Contents**: Include a table of contents at the top with links to sections for easier navigation.
   
 </details>
----
 
 <details>
   <summary>2. Consistent Formatting</summary>
