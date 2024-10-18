@@ -14,7 +14,7 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 ### Bulkifying Apex Code
 
 [Bulkifying Apex Code](../Apex_Standards/Examples.js) code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
-<details>
+
 ```javascript
 //Bulkify your Code
 trigger accountTestTrggr on Account (before insert, before update) {
@@ -29,7 +29,7 @@ trigger accountTestTrggr on Account (before insert, before update) {
 }
 
 ```
-</details>
+
 To ensure your Apex code is bulkified and can efficiently handle large volumes of data, follow these best practices:
 
 1. **Use Collections**:
