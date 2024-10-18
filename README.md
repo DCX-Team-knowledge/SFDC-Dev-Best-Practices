@@ -52,5 +52,7 @@ Here you’ll find a curated list of useful tools, external documentation, and t
 - [Trailhead Modules](https://trailhead.salesforce.com/)
 - [Recommended VS Code Extensions](Resources/VSCode_Extensions.md)
 
+## Changelog
+- **v1.0** - Initial release of the best practices guide (October 2024).
 
 
