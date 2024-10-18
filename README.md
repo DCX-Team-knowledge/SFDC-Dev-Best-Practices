@@ -45,5 +45,5 @@ Here you’ll find a curated list of useful tools, external documentation, and t
 - [Recommended VS Code Extensions](Resources/VSCode_Extensions.md)
 
 ## Contributing
-We welcome contributions from the community! Please review our [Contributing Guidelines](CONTRIBUTING.md) before submitting any changes to ensure consistency.
+We welcome contributions from the community! Please review our [Contributing Guidelines](Best_Practices/Contributing/README.md) before submitting any changes to ensure consistency.
 
