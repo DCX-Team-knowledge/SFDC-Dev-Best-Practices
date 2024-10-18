@@ -4,9 +4,9 @@ Thank you for considering contributing to our repository! We value the community
 
 ## Best Practices
 
-- Follow our [Coding Standards](link-to-coding-standards).
-- Include tests for any new feature (if applicable).
+- Follow our [Documentation Best Practices](Best_Practices/Documentation/README.md)
 - Document your code thoroughly to make it easier for others to understand.
+- Include examples, don't be shy
 
 ## Using ChatGPT for Assistance
 
