@@ -18,8 +18,6 @@ As a Salesforce Developer Consultant, it's crucial to follow established best pr
 
 ## Best Practices
 ### Coding Standards
-## Best Practices
-### Coding Standards
 Writing clean, efficient, and maintainable code is key. Adhere to our coding standards to ensure consistency across projects.
 
 - [General Coding Standards](Best_Practices/General_Standards/README.md): General coding best practices applicable across all Salesforce development.
