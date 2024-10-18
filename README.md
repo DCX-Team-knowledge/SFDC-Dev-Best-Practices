@@ -35,7 +35,7 @@ Security should be a top priority. Follow our [Security Guidelines](Best_Practic
 Implementing a smooth deployment process is critical for delivering reliable updates. Review our [Deployment Best Practices](Best_Practices/Deployment.md) for tips on version control, CI/CD, and more.
 
 ### Documentation
-Good documentation is essential. Make sure to document your code thoroughly and follow the guidelines in our [Documentation Best Practices](Best_Practices/Documentation.md).
+Good documentation is essential. Make sure to document your code thoroughly and follow the guidelines in our [Documentation Best Practices](Best_Practices/Documentation/README.md).
 
 ## Resources
 Here you’ll find a curated list of useful tools, external documentation, and training resources:
@@ -45,5 +45,5 @@ Here you’ll find a curated list of useful tools, external documentation, and t
 - [Recommended VS Code Extensions](Resources/VSCode_Extensions.md)
 
 ## Contributing
-We welcome contributions from the community! Please review our [Contributing Guidelines](Best_Practices/Contributing/README.md) before submitting any changes to ensure consistency.
+We welcome contributions from the community! Please review our [Contributing Guidelines](Contributing/README.md) before submitting any changes to ensure consistency.
 
