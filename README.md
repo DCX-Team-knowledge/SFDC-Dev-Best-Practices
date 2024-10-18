@@ -1,7 +1,14 @@
 ﻿# Salesforce Developer Consultant Best Practices
 
 ## Overview
-Welcome to the **Salesforce Developer Consultant Best Practices** guide! This repository is designed to help new developers quickly get up to speed with the best practices, coding standards, and tools you'll need in your role. It includes guidelines, code examples, and resources to ensure that you deliver high-quality, maintainable solutions for clients.
+Welcome to the **Salesforce Developer Consultant Best Practices** guide! This repository is designed to help new developers quickly get up to speed with the best practices, coding standards, and tools needed in your role. 
+
+### This guide includes:
+- Clear coding standards for Apex, LWC, and general development.
+- Security guidelines for safe development.
+- Deployment best practices, including CI/CD.
+- Resources for continuous learning and tool recommendations.
+
 
 ## Table of Contents
 1. [Introduction](#introduction)
