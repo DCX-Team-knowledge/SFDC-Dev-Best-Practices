@@ -33,12 +33,6 @@ Writing clean, efficient, and maintainable code is key. Adhere to our coding sta
 
 Make sure to follow these standards in every project to maintain high-quality, consistent code.
 
-### Security
-Security should be a top priority. Follow our [Security Guidelines](Best_Practices/Security.md) to ensure that your code respects Salesforce security best practices.
-
-### Deployment
-Implementing a smooth deployment process is critical for delivering reliable updates. Review our [Deployment Best Practices](Best_Practices/Deployment.md) for tips on version control, CI/CD, and more.
-
 ## Contributing
 We encourage contributions to help improve this repository. Please review the [Contributing Guidelines](Contributing/README.md) before making any changes. Whether you're fixing a bug, adding a new feature, or suggesting improvements, ensure your code follows our coding standards, is properly documented, and goes through peer review via pull requests.
 
