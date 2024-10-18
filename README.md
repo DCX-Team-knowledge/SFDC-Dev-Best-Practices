@@ -40,7 +40,7 @@ Security should be a top priority. Follow our [Security Guidelines](Best_Practic
 Implementing a smooth deployment process is critical for delivering reliable updates. Review our [Deployment Best Practices](Best_Practices/Deployment.md) for tips on version control, CI/CD, and more.
 
 ## Contributing
-We encourage contributions to help improve this repository. To maintain consistency and quality, please review the [Contributing Guidelines](Contributing/README.md) before making any changes. Whether you're fixing a bug, adding a new feature, or suggesting improvements, ensure your code follows our coding standards, is properly documented, and goes through peer review via pull requests.
+We encourage contributions to help improve this repository. Please review the [Contributing Guidelines](Contributing/README.md) before making any changes. Whether you're fixing a bug, adding a new feature, or suggesting improvements, ensure your code follows our coding standards, is properly documented, and goes through peer review via pull requests.
 
 ### Documentation
  Follow the [Documentation Best Practices](Best_Practices/Documentation/README.md) to create consistent, informative, and easy-to-understand documentation that helps both current and future developers efficiently navigate the project.
