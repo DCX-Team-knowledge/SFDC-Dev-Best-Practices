@@ -105,6 +105,43 @@ export function reduceErrors(errors) {
         })
         .reduce((prev, curr) => prev.concat(curr), []);
 }
+//Debugging a Lightning Web Component (LWC)
+import { LightningElement, track } from 'lwc';
+import getOrderDetails from '@salesforce/apex/OrderController.getOrderDetails';
+
+export default class OrderDetails extends LightningElement {
+    @track order;
+    @track orderItems;
+    @track error;
+    @track showOrderItems = false;
+
+    orderId = '801xx000003DGl0AAG'; // Example order ID
+
+    connectedCallback() {
+        this.loadOrderDetails();
+    }
+
+    loadOrderDetails() {
+        getOrderDetails({ orderId: this.orderId })
+            .then(result => {
+                this.order = result.order;
+                this.orderItems = result.orderItems;
+
+                // Show order items only if the order status is 'Shipped'
+                if (this.order.Status === 'Shipped') {
+                    this.showOrderItems = true;
+                }
+            })
+            .catch(error => {
+                this.error = error;
+            });
+    }
+
+    get hasOrderItems() {
+        return this.orderItems && this.orderItems.length > 0;
+    }
+}
+
 
 
 
