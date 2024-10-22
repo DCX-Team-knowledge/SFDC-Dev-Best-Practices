@@ -57,9 +57,12 @@
 - **ARIA Attributes**: Use ARIA attributes to enhance accessibility for users with disabilities.
 - **Responsive Design**: Ensure the UI is responsive and works well across different devices and screen sizes.
 
-## 12. Code Consistency Tools
+## 12. Code Tools
 
-- **Linters**: Use linters (like ESLint for JavaScript, Pylint for Python) to enforce coding standards automatically.
+- **Visual Studio Code**
+The **Visual Studio Code** is essential for developers aiming to boost productivity with VS Code. It provides quick access to key features like powerful editing, code intelligence, and integrated Git support. The guide covers time-saving shortcuts, customization options, and task automation. By following these tips, developers can streamline their workflow, improve efficiency, and fully leverage VS Code’s capabilities to create a more personalized and productive coding environment.
+[Read the full guide on the official website](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
+
 - **Code Formatters**: Use formatters (like Prettier or Black) to keep code consistently formatted.
 ### ***Guide to configure Prettier in order to apply a common style for a project***  
 
