@@ -18,9 +18,9 @@ Error handling is a crucial part of any application and should be incorporated f
 
 When developing **Lightning Web Components (LWC)**, it is essential to understand how to debug them effectively. This guide introduces key debugging techniques, both in **production mode** and **debug mode**. Production mode provides minified JavaScript and proxied values, while debug mode offers unminified code, custom formatting, and helpful engine warnings. Debug mode enhances the developer experience by making JavaScript more readable and providing better insights into potential issues.
 
-By following these debugging practices, developers can streamline the troubleshooting process and resolve issues efficiently, ensuring their Lightning Web Components work as expected in Salesforce.
+To illustrate these techniques in practice, let's explore a common debugging scenario with a component called `OrderDetails`.
 
-## Scenario:
+## Scenario: Debugging `OrderDetails`
 [Check the full example](./Exsamples.js#L1)
 You’ve built a Lightning Web Component called `OrderDetails` that fetches order details based on an order ID and conditionally displays related order items when the order is marked as **Shipped**. While testing, the order details render correctly, but the order items do not show, even though the order status is **Shipped**. There are no obvious errors in the browser console.
 
