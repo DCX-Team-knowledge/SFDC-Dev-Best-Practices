@@ -61,12 +61,5 @@ You’ve built a Lightning Web Component called `OrderDetails` that fetches orde
    In the **Console**, you can manually change the state of the component to see if it correctly triggers the DOM update. Try setting `component.showOrderItems` to `true` to force the display of the order items.
    
    - After setting this, inspect the DOM again in the **Elements** tab to see if the order items section is now being rendered. If the order items are displayed, this confirms that the rendering logic is working but wasn’t triggered initially.
-
-## Conclusion:
-
-By using the **Elements** and **Console** tabs in Chrome DevTools, you can debug complex Lightning Web Component issues like conditional rendering and data binding without relying on errors in the console. In this case, inspecting the DOM helps verify if the condition `showOrderItems` is being met, while the console allows you to check the state of the component and manually test rendering logic.
-
-This approach highlights the effectiveness of DevTools Inspector in quickly identifying issues related to DOM rendering, component state, and styling in LWCs.
-
-
+     
 [Read the full guide on the official website](https://developer.salesforce.com/blogs/2019/02/debug-your-lightning-web-components)
