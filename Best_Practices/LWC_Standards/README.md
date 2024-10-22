@@ -21,7 +21,7 @@ When developing **Lightning Web Components (LWC)**, it is essential to understan
 To illustrate these techniques in practice, let's explore a common debugging scenario with a component called `OrderDetails`.
 
 ## Scenario: Debugging `OrderDetails`
-[Check the full example](./Exsamples.js#L1)
+[Check the full example](./Exsamples.js#L108)
 You’ve built a Lightning Web Component called `OrderDetails` that fetches order details based on an order ID and conditionally displays related order items when the order is marked as **Shipped**. While testing, the order details render correctly, but the order items do not show, even though the order status is **Shipped**. There are no obvious errors in the browser console.
 
 ## Debugging the Issue Using Chrome DevTools Inspector
