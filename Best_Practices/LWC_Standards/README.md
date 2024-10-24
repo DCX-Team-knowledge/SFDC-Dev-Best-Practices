@@ -63,3 +63,80 @@ You’ve built a Lightning Web Component called `OrderDetails` that fetches orde
    - After setting this, inspect the DOM again in the **Elements** tab to see if the order items section is now being rendered. If the order items are displayed, this confirms that the rendering logic is working but wasn’t triggered initially.
      
 [Read the full guide on the official website](https://developer.salesforce.com/blogs/2019/02/debug-your-lightning-web-components)
+
+
+# Best Practices for Styling Aura and LWC with SLDS
+![Best Practices Chart](../Images/diagram_illustrating_best_practices_for_styling.png)
+
+---
+
+1. **<span style="color:green">Lightning Base Components</span>**
+   - Use built-in components for accessibility and SLDS compliance.
+   - **Recommended Approach**:  
+     ```html
+     <lightning-button label="Submit" variant="brand"></lightning-button>
+     ```
+   - **Avoid This**:  
+     Using hardcoded styles instead of SLDS-compliant components.  
+     ```html
+     <button style="background-color: #0070d2; color: white;">Submit</button>
+     ```
+
+---
+
+2. **<span style="color:green">SLDS Blueprints</span>**
+   - Provides flexible, customizable components while ensuring SLDS standards.
+   - **Preferred Method**:  
+     ```html
+     <div class="slds-button slds-button_brand">Submit</div>
+     ```
+   - **What to Avoid**:  
+     Customizing components without using SLDS classes, which can lead to inconsistency in design and accessibility.  
+     ```html
+     <div class="custom-button">Submit</div>
+     ```
+
+---
+
+3. **<span style="color:green">SLDS Styling Hooks</span>**
+   - Hooks provide access to variables controlling key styles like typography, spacing, and colors.
+   - **Best Practice**:  
+     ```css
+     .my-custom-container {
+       background-color: var(--slds-g-color-surface-container-1);
+     }
+     ```
+   - **Not Recommended**:  
+     Using hardcoded color values that won’t update with SLDS changes.  
+     ```css
+     .my-custom-container {
+       background-color: #f3f3f3;
+     }
+     ```
+
+---
+
+4. **<span style="color:green">Check SLDS Updates</span>**
+   - Always ensure you're using the latest Salesforce tools like [Salesforce Validator 2.0](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforce-vscode-slds).
+   - **Best Approach**:  
+     Regularly review and replace deprecated hooks with supported global hooks.
+     ```css
+     .my-custom-container {
+       background-color: var(--slds-g-color-surface-container-1, var(--lwc-cardColorBackground));
+     }
+     ```
+   - **Outdated Practice**:  
+     Continuing to use deprecated properties without updating them for SLDS 2 compatibility.  
+     ```css
+     .my-custom-container {
+       background-color: var(--lwc-cardColorBackground);
+     }
+     ```
+
+---
+
+## Additional Resources
+
+- [Create LWC Components with SLDS](https://developer.salesforce.com/docs/platform/lwc/guide/create-components-css-slds.html)
+- [SLDS Best Practices](https://www.lightningdesignsystem.com/dev-guidelines/best-practices/)
+
