@@ -27,7 +27,7 @@ As a Salesforce Developer Consultant, it's crucial to follow established best pr
 ### Coding Standards
 Writing clean, efficient, and maintainable code is key. Adhere to our coding standards to ensure consistency across projects.
 
-- [General Coding Standards](Best_Practices/General_Standards/README.md): General coding best practices applicable across all Salesforce development.
+- [General Coding Standards](../Best_Practices/General_Standards/README.md): General coding best practices applicable across all Salesforce development.
 - [Apex Coding Standards](Best_Practices/Apex_Standards/README.md): Guidelines specific to writing clean and efficient Apex code.
 - [LWC Coding Standards](Best_Practices/LWC_Standards/README.md): Best practices for developing Lightning Web Components (LWC).
 
