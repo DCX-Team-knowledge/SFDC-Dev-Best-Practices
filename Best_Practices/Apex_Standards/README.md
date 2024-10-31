@@ -4,62 +4,104 @@
 ## Overview
 Apex is Salesforce’s language for implementing business logic, triggers, and custom controllers. Use this page to review key coding standards to ensure your code is efficient, maintainable, and scalable. Following these guidelines helps optimize performance, stay within governor limits, and make your code easier to understand and extend.
 
+
+# Apex Coding Best Practices Guide
+
 ## Table of Contents
-- [Bulkifying Apex Code](#bulkifying-apex-code)
-- [Avoid SOQL Queries or DML Statements Inside FOR Loops](#avoid-soql-queries-or-dml-statements-inside-for-loops)
-- [Apex Error Handling](#apex-error-handling)
-  
+1. [Governor Limits Management](#1-governor-limits-management)
+2. [Bulkification](#2-bulkification)
+3. [Efficient SOQL and DML Practices](#3-efficient-soql-and-dml-practices)
+4. [Security and Data Access Control](#4-security-and-data-access-control)
+5. [Asynchronous Apex Usage](#5-asynchronous-apex-usage-future-queueable-batch-scheduled)
+6. [Testing and Code Coverage](#6-testing-and-code-coverage)
+7. [Trigger Frameworks and Handler Classes](#7-trigger-frameworks-and-handler-classes)
+8. [Using Custom Metadata and Custom Settings](#8-using-custom-metadata-and-custom-settings)
+9. [Avoiding Recursive Triggers](#9-avoiding-recursive-triggers)
+10. [Performance Monitoring and Optimization](#10-performance-monitoring-and-optimization)
+11. [Using Limits Class for Resource Management](#11-using-limits-class-for-resource-management)
 
+---
 
-### Bulkifying Apex Code
+## Scenario Context
+This guide uses a **Project Management System** context, involving `Task`, `Project`, and `TeamMember` records. Automation supports team member assignments, project progress calculation, task dependencies, and overdue notifications. Each example demonstrates a best practice relevant to this scenario.
 
-[Bulkifying Apex Code](../Apex_Standards/Examples.js) code ensures efficient handling of large data volumes while staying within Salesforce governor limits. It improves performance and prevents errors by processing multiple records in a single transaction.
+---
 
-```javascript
-//Bulkify your Code
-trigger accountTestTrggr on Account (before insert, before update) {
- 
-   //This only handles the first record in the Trigger.new collection
-   //But if more than one Account initiated this trigger, those additional records
-   //will not be processed
-   Account acct = Trigger.new[0];
-   List<Contact> contacts = [select id, salutation, firstname, lastname, email
-              from Contact where accountId = :acct.Id];
-    
-}
+### 1. Governor Limits Management
 
-```
+**Importance:** Salesforce enforces governor limits to maintain multi-tenant stability, ensuring that individual applications do not monopolize shared resources. Governor limits include constraints on the number of SOQL queries, DML operations, CPU time, heap size, and more. Writing code without considering these limits can lead to runtime errors, unhandled exceptions, and a poor user experience, especially in scenarios with high data volumes.
 
-To ensure your Apex code is bulkified and can efficiently handle large volumes of data, follow these best practices:
+**Best Practice:** To stay within governor limits, avoid repetitive DML operations and SOQL queries, process records in bulk, and manage memory efficiently. By adhering to governor limits, developers can ensure their code remains efficient, scalable, and stable.
 
-1. **Use Collections**:
-   - Utilize lists, sets, or maps to collect records and process them in bulk rather than one at a time.
-     In the example below, the code executes DML operations inside a loop, risking governor limits and inefficiency.
-     ```javascript
-     trigger AccountTrigger on Account (after insert) {
-     for (Account acc : Trigger.new) {
-        // Inefficient: DML inside a loop
-        insert new Contact(LastName = 'Smith', AccountId = acc.Id);
-     }
-     }
-     ```
-     This can be avoided by colleting the records in a list and performing a single DML operation outside the loop, optimizing performance and adhering to best practices.
-     ```javascript
-     trigger AccountTrigger on Account (after insert) {
-     List<Contact> contactsToInsert = new List<Contact>();
-     for (Account acc : Trigger.new) {
-     // Collect records in bulk
-     contactsToInsert.add(new Contact(LastName = 'Smith', AccountId = acc.Id));
-     }
-      // Perform DML outside the loop
-     insert contactsToInsert;
-     }
-     ```
+[Example in project_management_examples.java](project_management_examples.java)  
+[Salesforce Documentation - Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_gov_limits.htm)
 
-### Avoid SOQL Queries or DML Statements Inside FOR Loops
+---
 
-[Avoiding SOQL/DML in Apex code](../Apex_Standards/Examples.js#L13) ensures [Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_apexgov.htm) are not hit.
-Never place SOQL queries or DML statements inside `for` loops. Doing so can result in multiple queries or operations being executed, leading to performance issues and exceeding Salesforce’s execution limits. Instead, bulkify your operations by moving queries or DML statements outside the loop and processing data in collections.
+### 2. Bulkification
+
+**Importance:** Bulkification is crucial for handling multiple records in a single operation, especially in a multi-user system where multiple records might be processed simultaneously (e.g., batch processes or triggers on large datasets). Writing bulkified code prevents governor limit errors, minimizes DML and SOQL operations, and optimizes performance.
+
+**Best Practice:** Always assume that a trigger or batch process will handle multiple records. Design logic that can efficiently process collections rather than individual records. For example, in the case of assigning team members to tasks, bulkified code ensures that all assignments are made in a single DML operation rather than individual DML operations within a loop.
+
+[Example in project_management_examples.java](project_management_examples.java)  
+[Salesforce Documentation - Bulk Apex Triggers](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers_best_pract.htm)
+
+---
+
+### 3. Efficient SOQL and DML Practices
+
+**Importance:** Inefficient SOQL queries and DML operations lead to governor limit violations, slowing down processes and increasing CPU time usage. This practice ensures that queries are optimized and minimizes the number of DML operations performed, both of which are key to maintaining optimal performance.
+
+**Best Practice:** Avoid querying within loops and limit the number of DML operations. Use relationship queries whenever possible to retrieve related records efficiently, as demonstrated in calculating project progress based on task completion. This reduces unnecessary queries, enhances readability, and optimizes resource usage.
+
+[Example in project_management_examples.java](project_management_examples.java)  
+[Salesforce Documentation - SOQL and DML Operations](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/langCon_apex_SOQL_VLSQ.htm)
+
+---
+
+### 4. Security and Data Access Control
+
+**Importance:** Ensuring proper field- and object-level security (FLS and OLS) protects sensitive data, and compliance is critical for data privacy. Ignoring these considerations could inadvertently expose sensitive data to users who lack appropriate access.
+
+**Best Practice:** Always check user permissions programmatically before accessing or modifying sensitive data. This not only ensures compliance with Salesforce security protocols but also builds trust with users by enforcing access restrictions, as illustrated by checking permissions before updating task ownership in the Project Management System.
+
+[Example in project_management_examples.java](project_management_examples.java)  
+[Salesforce Documentation - Security and Data Access](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_classes_perms_enforcing.htm)
+
+---
+
+### 5. Asynchronous Apex Usage (Future, Queueable, Batch, Scheduled)
+
+**Importance:** Asynchronous Apex methods enable background processing for resource-heavy tasks, helping to avoid governor limits during synchronous operations. Different asynchronous methods serve specific purposes, and selecting the right one based on the task ensures optimal performance and code maintainability.
+
+**Asynchronous Method Best Practices:**
+- **Future Methods:** Simple to implement but cannot return results or chain jobs. Best for lightweight operations like external callouts. Avoid using them for complex tasks due to limited flexibility.
+- **Queueable Apex:** Supports complex jobs and job chaining, allowing the handling of more sophisticated use cases, such as updating data from external sources. Queueable jobs are preferred over future methods due to the added control and flexibility.
+- **Batch Apex:** Designed for processing large datasets asynchronously, batch jobs support retry functionality and allow for breaking tasks into manageable chunks. Ideal for periodic data processing like recalculating project statuses or overdue notifications on all records.
+- **Scheduled Apex:** Runs at a defined schedule (e.g., nightly), ideal for recurring tasks like sending overdue notifications. Schedule jobs that don’t require immediate execution and need to run during low-traffic hours to reduce server load.
+
+**Best Practice:** For complex jobs with multiple stages, use Queueable Apex. Use Batch Apex for processing large datasets and Scheduled Apex for time-bound recurring tasks. This approach optimizes resource use and enables scalable, maintainable solutions.
+
+[Example in project_management_examples.java](project_management_examples.java)  
+[Salesforce Documentation - Asynchronous Apex](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_async_overview.htm)
+
+---
+
+### 6. Testing and Code Coverage
+
+**Importance:** Testing validates that code functions as intended, reducing bugs in production. High code coverage is mandatory in Salesforce, with a 75% minimum required for deployment. However, testing should go beyond mere coverage to ensure comprehensive validation, including both positive and negative test cases. Negative testing ensures that edge cases and error scenarios are handled gracefully, protecting the system from unexpected user actions or data inconsistencies.
+
+**Best Practice Guidelines:**
+- **Positive Testing:** Verify that the code performs as expected under normal conditions, e.g., assigning team members successfully.
+- **Negative Testing:** Ensure the code handles invalid inputs or user permissions correctly. This minimizes runtime errors and enhances user experience by handling failures predictably.
+- **Bulk Testing:** Test with multiple records to confirm bulkification and avoid hitting governor limits.
+- **Edge Cases:** Consider scenarios with maximum data loads, null values, and unusual conditions. Comprehensive edge-case testing improves the robustness of the application.
+
+**Consequences of Inadequate Testing:** Without thorough tests, including negative cases, bugs slip into production, causing potential system downtime, data corruption, or security issues. Low test coverage leaves code vulnerable to regressions, making maintenance difficult and increasing long-term costs.
+
+[Example in project_management_examples.java](project_management_examples.java)  
+[Salesforce Documentation - Apex Testing](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_testing.htm)
 
 
 ### Apex Error Handling
