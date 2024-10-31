@@ -4,9 +4,6 @@
 ## Overview
 Apex is Salesforce’s language for implementing business logic, triggers, and custom controllers. Use this page to review key coding standards to ensure your code is efficient, maintainable, and scalable. Following these guidelines helps optimize performance, stay within governor limits, and make your code easier to understand and extend.
 
-
-# Apex Coding Best Practices Guide
-
 ## Table of Contents
 1. [Governor Limits Management](#1-governor-limits-management)
 2. [Bulkification](#2-bulkification)
@@ -34,7 +31,8 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** To stay within governor limits, avoid repetitive DML operations and SOQL queries, process records in bulk, and manage memory efficiently. By adhering to governor limits, developers can ensure their code remains efficient, scalable, and stable.
 
-[Example in project_management_examples.java](../Apex_Standards/Examples.cls#L1)  
+[Example](../Apex_Standards/Examples.cls#L1)  
+
 [Salesforce Documentation - Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_gov_limits.htm)
 
 ---
@@ -45,7 +43,8 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Always assume that a trigger or batch process will handle multiple records. Design logic that can efficiently process collections rather than individual records. For example, in the case of assigning team members to tasks, bulkified code ensures that all assignments are made in a single DML operation rather than individual DML operations within a loop.
 
-[Example](../Apex_Standards/Examples.cls#L9)
+[Example](../Apex_Standards/Examples.cls#L9)  
+
 [Salesforce Documentation - Bulk Apex Triggers](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers_best_pract.htm)
 
 ---
@@ -56,7 +55,7 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Avoid querying within loops and limit the number of DML operations. Use relationship queries whenever possible to retrieve related records efficiently, as demonstrated in calculating project progress based on task completion. This reduces unnecessary queries, enhances readability, and optimizes resource usage.
 
-[Example in project_management_examples.java](../Apex_Standards/Examples.cls#L24)  
+[Example](../Apex_Standards/Examples.cls#L24)  
 [Salesforce Documentation - SOQL and DML Operations](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/langCon_apex_SOQL_VLSQ.htm)
 
 ---
