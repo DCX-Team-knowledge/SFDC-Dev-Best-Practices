@@ -36,7 +36,7 @@ Thank you for considering contributing to our repository! We value the community
 
 ## Best Practices
 
-- Follow our [Documentation Best Practices](Best_Practices/Documentation/README.md)
+- Follow our [Documentation Best Practices](#documentation)
 - Document your code thoroughly to make it easier for others to understand.
 - Include examples, don't be shy
 
