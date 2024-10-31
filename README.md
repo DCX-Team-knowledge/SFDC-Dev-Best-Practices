@@ -74,6 +74,8 @@ To start contributing, follow these steps:
      echo "Hello, world!"
      ```
    - Ensure consistency across the document (spacing, indentation).
+     
+     [For more guidance on writing in Markdown](https://www.markdownguide.org/getting-started/)
 
 3. **Submit a Pull Request**:
    - Once you've made your changes, commit with a meaningful message:
