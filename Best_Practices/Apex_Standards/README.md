@@ -8,7 +8,7 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 # Apex Coding Best Practices Guide
 
 ## Table of Contents
-1. [Governor Limits Management](#1-governor-limits-management)
+1. [Governor Limits Management](#1. Governor Limits Management)
 2. [Bulkification](#2-bulkification)
 3. [Efficient SOQL and DML Practices](#3-efficient-soql-and-dml-practices)
 4. [Security and Data Access Control](#4-security-and-data-access-control)
