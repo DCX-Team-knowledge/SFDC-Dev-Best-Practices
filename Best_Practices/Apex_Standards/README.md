@@ -32,7 +32,6 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 **Best Practice:** To stay within governor limits, avoid repetitive DML operations and SOQL queries, process records in bulk, and manage memory efficiently. By adhering to governor limits, developers can ensure their code remains efficient, scalable, and stable.
 
 [Example](../Apex_Standards/Examples.cls#L1)  
-
 [Salesforce Documentation - Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_gov_limits.htm)
 
 ---
@@ -44,7 +43,6 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 **Best Practice:** Always assume that a trigger or batch process will handle multiple records. Design logic that can efficiently process collections rather than individual records. For example, in the case of assigning team members to tasks, bulkified code ensures that all assignments are made in a single DML operation rather than individual DML operations within a loop.
 
 [Example](../Apex_Standards/Examples.cls#L9)  
-
 [Salesforce Documentation - Bulk Apex Triggers](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers_best_pract.htm)
 
 ---
@@ -66,7 +64,7 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Always check user permissions programmatically before accessing or modifying sensitive data. This not only ensures compliance with Salesforce security protocols but also builds trust with users by enforcing access restrictions, as illustrated by checking permissions before updating task ownership in the Project Management System.
 
-[Example](../Apex_Standards/Examples.cls#L31)
+[Example](../Apex_Standards/Examples.cls#L31)  
 [Salesforce Documentation - Security and Data Access](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_classes_perms_enforcing.htm)
 
 ---
@@ -83,7 +81,7 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** For complex jobs with multiple stages, use Queueable Apex. Use Batch Apex for processing large datasets and Scheduled Apex for time-bound recurring tasks. This approach optimizes resource use and enables scalable, maintainable solutions.
 
-[Example](../Apex_Standards/Examples.cls#L41) 
+[Example](../Apex_Standards/Examples.cls#L41)  
 [Salesforce Documentation - Asynchronous Apex](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_async_overview.htm)
 
 ---
@@ -110,7 +108,7 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Use a trigger framework or handler class to manage complex trigger logic. This pattern keeps code organized by separating different operations into specific methods, improving maintainability and facilitating future updates, such as adding new validation or automations.
 
-[Example](../Apex_Standards/Examples.cls#L78)
+[Example](../Apex_Standards/Examples.cls#L78)  
 [Salesforce Documentation - Apex Triggers](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers.htm)
 
 ---
@@ -121,7 +119,7 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Store all configurable values, such as thresholds or permissions, in Custom Metadata or Custom Settings. This approach enhances code flexibility and allows for easier updates by system administrators, as demonstrated in defining high-priority thresholds in the Project Management System.
 
-[Example](../Apex_Standards/Examples.cls#L95) 
+[Example](../Apex_Standards/Examples.cls#L95)  
 [Salesforce Documentation - Custom Metadata Types](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_metadata.htm)
 
 ---
@@ -132,7 +130,7 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Use static variables or flags to track trigger executions, preventing unintended recursion. This technique ensures that triggers execute only when necessary, reducing the risk of exceeding governor limits and improving system reliability.
 
-[Example](../Apex_Standards/Examples.cls#L106)
+[Example](../Apex_Standards/Examples.cls#L106)  
 [Salesforce Documentation - Recursive Trigger Prevention](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_triggers_recursion.htm)
 
 ---
@@ -154,15 +152,12 @@ This guide uses a **Project Management System** context, involving `Task`, `Proj
 
 **Best Practice:** Use the Limits class to track the current resource usage of SOQL queries, DML statements, and heap size. Regular monitoring helps catch potential governor limit issues in testing before they reach production, ensuring that code runs efficiently without consuming excessive resources.
 
-[Example](../Apex_Standards/Examples.cls#L130)
+[Example](../Apex_Standards/Examples.cls#L130)  
 [Salesforce Documentation - Limits Class](https://developer.salesforce.com/docs/atlas.en-us.224.0.apexcode.meta/apexcode/apex_methods_system_limits.htm)
 
 
 
 ### 12. Apex Error Handling
-
-# [Apex Error Handling Best Practices](#apex-error-handling-best-practices)
-
 As Apex developers, it's essential to handle errors consistently across projects. This guide covers best practices for managing exceptions in Salesforce applications, with examples to help you implement effective error handling strategies.
 
 ## General Guidelines
@@ -188,7 +183,6 @@ As Apex developers, it's essential to handle errors consistently across projects
 | **Custom Exception Class**   | Define and throw custom exception classes for advanced error control.                               | [Custom Exception Class Example](../Apex_Standards/Examples.cls#L195)                 |
 | **Null Handling**            | Use the safe navigation operator to handle null values without raising exceptions.                  | [Null Handling Example](../Apex_Standards/Examples.cls#L210)                                   |
 | **Custom Error Object**      | Return a structured error object using a wrapper class for detailed error messaging.                | [Custom Error Object Example](../Apex_Standards/Examples.cls#L218)                       |
-
 ## References
 
 - [Apex Error Handling in LWC](https://developer.salesforce.com/docs/platform/lwc/guide/apex-error-handling.html)
