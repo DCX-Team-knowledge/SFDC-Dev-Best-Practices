@@ -21,7 +21,7 @@ Apex is Salesforce’s language for implementing business logic, triggers, and c
 ---
 
 ## Scenario Context
-This guide uses a **Project Management System** context, involving `Task`, `Project`, and `TeamMember` records. Automation supports team member assignments, project progress calculation, task dependencies, and overdue notifications. Each example demonstrates a best practice relevant to this scenario.
+This guide uses a **Project Management System** context, involving `Task`, `Project`, and `TeamMember` records. Automation supports team member assignments, project progress calculation, task dependencies, and overdue notifications. Each example demonstrates a best practice relevant to this scenario.[Check the full example](../Apex_Standards/Examples.cls#L1)
 
 ---
 
